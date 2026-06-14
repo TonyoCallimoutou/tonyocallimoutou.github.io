@@ -9,6 +9,43 @@
   max-width: 1100px;
   margin: 0 auto;
 
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 36px;
+  }
+
+  &__stat {
+    background: #0e1420;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 16px;
+  }
+
+  &__stat-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #00ff87;
+    margin-bottom: 4px;
+  }
+
+  &__stat-label {
+    font-size: 12px;
+    color: #64748b;
+  }
+
+  &__subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #00ff87;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    opacity: 0.9;
+  }
+
   &__grid {
     position: absolute;
     inset: -100px;

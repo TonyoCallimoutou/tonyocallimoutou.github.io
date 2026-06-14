@@ -4,7 +4,7 @@
 
   <div class="hero__content">
     <div class="hero__eyebrow">
-      <span>&gt; hello_world.sh</span>
+      <span>&gt; {{ subtitle }}</span>
       <div class="hero__pulse" aria-hidden="true"></div>
     </div>
 
@@ -19,9 +19,7 @@
       <span class="cursor" aria-hidden="true">|</span>
     </div>
 
-    <p class="hero__sub">
-      Développeur Full-Stack Java/Angular avec 3 ans d'expérience sur un projet national en environnement microservices. Curieux, touche-à-tout, je me lance en freelance pour la variété des projets.
-    </p>
+    <p class="hero__sub">{{ description }}</p>
 
     <div class="hero__socials">
       <a class="hero__social" href="https://github.com/TonyoCallimoutou" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
@@ -39,4 +37,13 @@
   <a class="hero__scroll" (click)="scrollTo('skills')" aria-label="Défiler vers le bas">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
   </a>
+
+  <div class="hero__stats">
+    @for (stat of stats; track stat.label) {
+    <div class="hero__stat">
+      <div class="hero__stat-value">{{ stat.value }}</div>
+      <div class="hero__stat-label">{{ stat.label }}</div>
+    </div>
+    }
+  </div>
 </section>

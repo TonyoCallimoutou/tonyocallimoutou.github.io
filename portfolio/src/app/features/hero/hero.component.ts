@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TypewriterService } from '../../shared/services/typewriter.service';
-import { ROLES } from '../../../assets/data/portfolio.data';
+import { ROLES, HERO_SUBTITLE, HERO_DESC, STATS } from '../../../assets/data/portfolio.data';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -13,6 +13,10 @@ import { Subscription } from 'rxjs';
 })
 export class HeroComponent implements OnInit, OnDestroy {
   displayed = '';
+  subtitle  = HERO_SUBTITLE;
+  description = HERO_DESC;
+  stats = STATS;
+
   private sub!: Subscription;
 
   constructor(private typewriter: TypewriterService) {}

@@ -145,5 +145,7 @@
   }
 }
 
+.accent { color: #00ff87; }
+
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
 @keyframes spin { to { transform: rotate(360deg); } }
