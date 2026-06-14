@@ -2,6 +2,8 @@
 
 Portfolio personnel développé en Angular, déployé automatiquement sur GitHub Pages via GitHub Actions.
 
+https://tonyocallimoutou.github.io
+
 ## Stack
 
 - **Framework** — Angular 17 (standalone components, signals)
