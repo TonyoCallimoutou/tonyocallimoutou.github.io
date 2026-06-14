@@ -1,27 +1,64 @@
-# Portfolio
+# Portfolio — Tonyo Callimoutou
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
+Portfolio personnel développé en Angular, déployé automatiquement sur GitHub Pages via GitHub Actions.
 
-## Development server
+## Stack
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Framework** — Angular 17 (standalone components, signals)
+- **Styles** — SCSS
+- **Contact** — Formspree
+- **CI/CD** — GitHub Actions
+- **Hébergement** — GitHub Pages
 
-## Code scaffolding
+## Architecture
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+    ├──portfolio/
+    │   └── src/
+    │       ├── app/
+    │       │   ├── core/models/          # Interfaces TypeScript
+    │       │   ├── features/             # Composants par section
+    │       │   │   ├── navbar/
+    │       │   │   ├── hero/
+    │       │   │   ├── skills/
+    │       │   │   ├── experience/
+    │       │   │   ├── projects/
+    │       │   │   └── contact/
+    │       │   └── shared/services/      # ScrollSpy, Typewriter, FadeIn, Email
+    │       ├── assets/data/
+    │       │   └── portfolio.data.ts     # ← toutes les données ici
+    │       └── styles/
+    │           └── global.scss
+    └── .github/workflows/
+        └── main.yml
+```
 
-## Build
+## Développement local
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+# Installer les dépendances
+npm install
 
-## Running unit tests
+# Lancer en local
+npm start
+# → http://localhost:4200
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Déploiement
 
-## Running end-to-end tests
+Le déploiement est entièrement automatisé.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+push sur main
+      │
+      ▼
+GitHub Actions (main.yml)
+  → npm run build:prod
+  → génère les fichiers statiques dans dist/
+  → pousse le build sur la branche prod
+      │
+      ▼
+GitHub Pages
+  → expose la branche prod comme site statique
+  → https://tonyocallimoutou.github.io/portfolio
+```
