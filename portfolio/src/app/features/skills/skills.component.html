@@ -1,0 +1,19 @@
+<section id="skills" class="skills">
+  <div class="skills__inner">
+    <p class="section-eyebrow">01. Compétences</p>
+    <h2 class="section-title">Stack technique</h2>
+
+    <div class="skills__grid">
+      @for (group of skillGroups; track group.category) {
+        <div class="skill-card fade-in">
+          <p class="skill-card__cat">{{ group.category }}</p>
+          <div class="skill-card__pills">
+            @for (skill of group.skills; track skill) {
+              <span class="skill-pill">{{ skill }}</span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+// ── Variables ─────────────────────────────────────────────────────
+$bg:          #080b12;
+$bg-card:     #0e1420;
+$bg-darker:   #0a0d16;
+$bg-input:    #141c2e;
+$primary:     #00ff87;
+$foreground:  #e2e8f0;
+$muted:       #64748b;
+$border:      rgba(255, 255, 255, 0.08);
+$font-sans:   'Outfit', sans-serif;
+$font-mono:   'JetBrains Mono', monospace;
+$radius:      10px;
+
+// ── Reset ─────────────────────────────────────────────────────────
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: $bg;
+  color: $foreground;
+  font-family: $font-sans;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: $font-sans; cursor: pointer; border: none; background: none; }
+input, textarea { font-family: $font-sans; }
+
+// ── Utilitaires globaux ───────────────────────────────────────────
+.mono { font-family: $font-mono; }
+
+.section-eyebrow {
+  font-family: $font-mono;
+  font-size: 12px;
+  color: $primary;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: $foreground;
+  margin-bottom: 48px;
+  line-height: 1.2;
+
+  span { color: $muted; }
+}
+
+.tag {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: $font-mono;
+  color: $primary;
+  border: 1px solid rgba(0, 255, 135, 0.3);
+  background: rgba(0, 255, 135, 0.05);
+}
+
+// ── Scrollbar custom ─────────────────────────────────────────────
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: $bg; }
+::-webkit-scrollbar-thumb { background: $bg-input; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: $muted; }
+
+// ── Animation fade-in au scroll ───────────────────────────────────
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in { opacity: 1; transform: none; transition: none; }
+}

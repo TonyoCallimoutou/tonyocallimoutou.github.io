@@ -1,0 +1,111 @@
+<section id="contact" class="contact">
+  <div class="contact__inner">
+    <p class="section-eyebrow">04. Contact</p>
+    <h2 class="section-title">Travaillons <span>ensemble</span></h2>
+
+    <div class="contact__grid">
+      <!-- Infos -->
+      <div class="contact__info fade-in">
+        <div class="contact-item">
+          <div class="contact-item__icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <p class="contact-item__label">Email</p>
+            <a class="contact-item__value" href="mailto:tonyo.callimoutou@hotmail.com">
+              tonyo.callimoutou&#64;hotmail.com
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item__icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <p class="contact-item__label">Localisation</p>
+            <p class="contact-item__value">Paris → Montpellier (sept. 2025)</p>
+          </div>
+        </div>
+
+        <div class="available">
+          <div class="available__header">
+            <div class="available__dot" aria-hidden="true"></div>
+            <span class="available__title">Disponible pour missions freelance</span>
+          </div>
+          <p class="available__text">
+            Ouvert aux missions Full-Stack Java/Angular à Montpellier à partir de septembre 2025.
+          </p>
+        </div>
+      </div>
+
+      <!-- Formulaire -->
+      <form class="contact__form fade-in" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="name">Nom</label>
+            <input
+              id="name"
+              class="form-input"
+              [class.error]="isInvalid('name')"
+              type="text"
+              formControlName="name"
+              placeholder="Jean Dupont">
+            @if (isInvalid('name')) {
+              <span class="form-error">Nom requis (min. 2 caractères)</span>
+            }
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input
+              id="email"
+              class="form-input"
+              [class.error]="isInvalid('email')"
+              type="email"
+              formControlName="email"
+              placeholder="jean@exemple.fr">
+            @if (isInvalid('email')) {
+              <span class="form-error">Email invalide</span>
+            }
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">Message</label>
+          <textarea
+            id="message"
+            class="form-input form-textarea"
+            [class.error]="isInvalid('message')"
+            formControlName="message"
+            rows="5"
+            placeholder="Décrivez votre projet...">
+          </textarea>
+          @if (isInvalid('message')) {
+            <span class="form-error">Message requis (min. 10 caractères)</span>
+          }
+        </div>
+
+        <button
+          type="submit"
+          class="form-btn"
+          [disabled]="status === 'loading'"
+          [class.success]="status === 'success'"
+          [class.error-btn]="status === 'error'">
+
+          @if (status === 'loading') {
+            <span class="form-btn__spinner" aria-hidden="true"></span>
+            Envoi en cours...
+          } @else if (status === 'success') {
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Message envoyé !
+          } @else if (status === 'error') {
+            Erreur — réessayer
+          } @else {
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Envoyer le message
+          }
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

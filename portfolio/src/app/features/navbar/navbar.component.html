@@ -1,0 +1,41 @@
+<header class="navbar" [class.scrolled]="scrolled">
+  <nav class="navbar__inner">
+    <a class="navbar__logo" (click)="scrollTo('hero')">
+      <span class="accent">~/</span>tonyo
+    </a>
+
+    <div class="navbar__links">
+      @for (link of links; track link.href) {
+        <button
+          class="navbar__link"
+          [class.active]="activeSection === link.href"
+          (click)="scrollTo(link.href)">
+          {{ link.label }}
+        </button>
+      }
+    </div>
+
+    <button class="navbar__cv" onclick="window.open('assets/cv-tonyo-callimoutou.pdf', '_blank')">
+      CV
+    </button>
+
+    <button class="navbar__burger" (click)="menuOpen = !menuOpen" aria-label="Menu">
+      <span [class.open]="menuOpen"></span>
+      <span [class.open]="menuOpen"></span>
+      <span [class.open]="menuOpen"></span>
+    </button>
+  </nav>
+
+  @if (menuOpen) {
+    <div class="navbar__mobile">
+      @for (link of links; track link.href) {
+        <button class="navbar__mobile-link" (click)="scrollTo(link.href)">
+          {{ link.label }}
+        </button>
+      }
+      <button class="navbar__cv" onclick="window.open('assets/cv-tonyo-callimoutou.pdf', '_blank')">
+        CV
+      </button>
+    </div>
+  }
+</header>

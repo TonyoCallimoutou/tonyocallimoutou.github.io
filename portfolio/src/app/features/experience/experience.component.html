@@ -1,0 +1,29 @@
+<section id="experience" class="experience">
+  <div class="experience__inner">
+    <p class="section-eyebrow">02. Expérience</p>
+    <h2 class="section-title">Parcours professionnel</h2>
+
+    <div class="timeline">
+      @for (exp of experiences; track exp.role; let last = $last) {
+        <div class="timeline__item fade-in">
+          <div class="timeline__dot" [class.current]="exp.current"></div>
+          <div class="timeline__content">
+            <div class="timeline__header">
+              <div>
+                <h3 class="timeline__role">{{ exp.role }}</h3>
+                <p class="timeline__company">{{ exp.company }}</p>
+              </div>
+              <span class="timeline__period">{{ exp.period }}</span>
+            </div>
+            <p class="timeline__desc">{{ exp.description }}</p>
+            <div class="timeline__tags">
+              @for (tag of exp.tags; track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
